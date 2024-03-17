@@ -2,7 +2,7 @@
 """ Basic annotationis - float """
 
 
-def floor(n: float) -> float:
+def floor(n: float) -> int:
     """Type-annotated function floor that takes a float arguments.
         Args:
             n: float type.

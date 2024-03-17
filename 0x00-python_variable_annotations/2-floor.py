@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-""" Basic annotation - float """
+""" Basic annotationis - float """
 
 
 def floor(n: float) -> float:
-    Type-annotated function floor that takes a float arguments.
+    """Type-annotated function floor that takes a float arguments.
         Args:
-            n: float type
+            n: float type.
         Return:
-            floor of the float
+            floor of the float.
     """
     return int(n)

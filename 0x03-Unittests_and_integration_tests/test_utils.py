@@ -9,15 +9,17 @@ from utils import access_nested_map, get_json, memoize
 
 
 class TestAccessNestedMap(unittest.TestCase):
-    """ a class that testednestedmap that inherits
-    from unittest.testcase
-    """
-
-
+    """Tests the `access_nested_map` function."""
     @parameterized.expand([
-        nested_map={"a": 1}, path=("a",)
-        nested_map={"a": {"b": 2}}, path=("a",)
-        nested_map={"a": {"b": 2}}, path=("a", "b")])
-    def test_access_nested_map(self, nested_map, path, expected):
-         """Tests `access_nested_map`'s output."""
-         self.assertEqual(access_nested_map(nested_map, path), expected)
+        ({"a": 1}, ("a",), 1),
+        ({"a": {"b": 2}}, ("a",), {"b": 2}),
+        ({"a": {"b": 2}}, ("a", "b"), 2),
+    ])
+    def test_access_nested_map(
+            self,
+            nested_map: Dict,
+            path: Tuple[str],
+            expected: Union[Dict, int],
+            ) -> None:
+        """Tests `access_nested_map`'s output."""
+        self.assertEqual(access_nested_map(nested_map, path), expected)
